@@ -1,1 +1,132 @@
-# test
+
+# Real-time Notification & Chat App with FastAPI + WebSocket
+
+This project is a real-time WebSocket-based system built with FastAPI (backend) and HTML/CSS/JavaScript (frontend). It enables real-time communication between a server and multiple clients, supporting live notifications and connected user tracking.
+
+---
+
+## 🔧 Project Structure
+
+```bash
+Project/
+│
+├── app/                           # Backend logic and FastAPI code
+│   ├── certs/                     # SSL/TLS certificates
+│   │   ├── cert.pem
+│   │   └── key.pem
+│   ├── main.py                    # FastAPI entry point
+│   ├── config.py                  # Environment configurations
+│   ├── database.py                # MongoDB operations
+│   ├── server.py                  # Server WebSocket logic
+│   ├── client.py                  # Client WebSocket logic
+│   ├── msg.py                     # Email notifications handler
+│   └── shared_tools.py            # Shared utilities
+│
+├── pages/                         # Frontend (HTML/CSS/JS)
+│   ├── client.html
+│   ├── server.html
+│   ├── css/
+│   │   ├── client.css
+│   │   ├── common.css
+│   │   └── server.css
+│   ├── js/
+│   │   ├── client.js
+│   │   └── server.js
+│   └── images/
+│       ├── Server Background.png
+│       ├── favicon_client.ico
+│       ├── favicon_server.ico
+│       └── favicon_login.ico
+│
+├── .env                           # Environment variables
+├── .gitignore                     # Files ignored by Git
+├── requirements.txt               # Python dependencies
+├── procfile                       # Deployment process configuration
+└── README.md                      # Project documentation
+```
+
+---
+
+## 🚀 Features
+
+- Real-time bi-directional communication (WebSockets)
+- Live tracking of connected users
+- Clients can send messages/notifications
+- Server dashboard shows live data and messages
+- Responsive web UI using FastAPI backend
+
+---
+
+## 📦 Requirements
+
+- Python 3.8+
+- FastAPI
+- uvicorn
+- websockets
+- python-dotenv
+- pymongo
+- pydantic
+- bcrypt
+- motor
+
+---
+
+## ▶️ Running the Project
+
+1. Clone the repository:
+  
+    ```bash
+      git clone https://github.com/Simple-Distributed-Notification-System/Simple-Distributed-Notification-System.git
+    ```
+
+2. Navigate into the directory:
+
+    ```bash
+      cd Project
+    ```
+
+3. Install dependencies:
+
+    ```bash
+      pip install -r requirements.txt
+    ```
+
+4. Run the server:
+
+    ```bash
+      python -m app.main
+    ```
+
+5. Open your browser to:
+
+   - Server Dashboard: <https://127.0.0.1:8000/server/{ID_SERVER}>
+   - Client Page: <https://127.0.0.1:8000/>
+
+---
+
+## 🔌 WebSocket Routes
+
+- `/ws/server` — for server dashboard communication
+- `/ws/client` — for client subscriptions
+
+---
+
+## 📚 How It Works
+
+- Clients subscribe via `/ws/client`
+- Server monitors via `/ws/server`
+- Clients send messages to the server
+- Server broadcasts updates and shows real-time stats
+
+---
+
+## 📌 TODO (Optional Enhancements)
+
+- Add timestamps to messages
+- Display online/offline status of clients
+- Save and display message history
+- Enable file sharing (e.g., images, documents) in chat
+- Improve error handling and reconnection strategy
+- Add theme support (dark/light mode)
+- Support multi-room
+- Optimize performance for high concurrent users
